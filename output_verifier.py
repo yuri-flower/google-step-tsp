@@ -22,6 +22,7 @@ def verify_output():
                 lines = f.readlines()
                 assert lines[0].strip() == 'index'
                 tour = [int(i.strip()) for i in lines[1:N + 1]]
+            # print(set(tour), set(range(N)))
             assert set(tour) == set(range(N))
             path_length = sum(distance(cities[tour[i]], cities[tour[(i + 1) % N]])
                               for i in range(N))
